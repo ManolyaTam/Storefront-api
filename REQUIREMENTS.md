@@ -40,3 +40,33 @@ These are the notes from a meeting with the frontend developer that describe wha
 - user_id
 - status of order (active or complete)
 
+## Database schema
+Product (many <---> many) Order
+User (1 <---> many) Order
+
+so we will create a join table (order_products)
+
+suggested schema (with the suggested order of implementation)
+
+1. users
+  - id
+  - firstName
+  - lastName
+  - password
+
+2. products
+  - id
+  - name
+  - price
+
+3. orders
+  - id
+  - user_id
+  - status (active/complete)
+
+4. order_products
+  - id
+  - order_id
+  - product_id
+  - quantity
+
