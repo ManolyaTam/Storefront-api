@@ -19,3 +19,5 @@ INSERT INTO products (id, name, price) VALUES
 (12, 'Laptop Backpack', 70.00),
 (13, 'Programming Book: JavaScript', 30.00),
 (14, 'Programming Book: Python', 32.00);
+
+SELECT setval('products_id_seq', (SELECT MAX(id) FROM products));

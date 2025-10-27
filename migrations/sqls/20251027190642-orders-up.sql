@@ -25,3 +25,5 @@ INSERT INTO orders (id, user_id, status) VALUES
 (18, 3, 'active'),
 (19, 4, 'active'),
 (20, 5, 'active');
+
+SELECT setval('orders_id_seq', (SELECT MAX(id) FROM orders));

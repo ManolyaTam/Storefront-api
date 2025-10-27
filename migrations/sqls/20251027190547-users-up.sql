@@ -11,3 +11,5 @@ INSERT INTO users (id, firstName, lastName, password) VALUES
 (3, 'Dude', 'Who', '$2b$10$zyxwvutsrqponmlkjihgfedc'),
 (4, 'Sameer', 'Who', '$2b$10$zyxwvutsrqponmlkjihgfedc'),
 (5, 'Who', 'Him', '$2b$10$zyxwvutsrqponmlkjihgfedc');
+
+SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
