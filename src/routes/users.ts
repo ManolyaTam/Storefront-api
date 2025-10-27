@@ -1,12 +1,11 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import { pool } from './db';
-import { verifyToken } from '../middleware/auth';
 
 const router = express.Router();
 const saltRounds = 10;
 
-router.get('/', verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT id, firstName, lastName FROM users');
     res.json(result.rows);
@@ -16,7 +15,7 @@ router.get('/', verifyToken, async (req, res) => {
   }
 });
 
-router.get('/:id', verifyToken, async (req, res) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query(
@@ -31,7 +30,7 @@ router.get('/:id', verifyToken, async (req, res) => {
   }
 });
 
-router.post('/', verifyToken, async (req, res) => {
+router.post('/', async (req, res) => {
   const { firstName, lastName, password } = req.body;
   if (!firstName || !lastName || !password)
     return res.status(400).send('Missing fields');

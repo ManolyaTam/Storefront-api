@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import usersRouter from './routes/users';
 import productsRouter from './routes/products';
 import ordersRouter from './routes/orders';
+import { verifyToken } from './middleware/auth';
 
 const app: express.Application = express();
 const address: string = "0.0.0.0:3000";
@@ -15,7 +16,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Routers
-app.use('/users', usersRouter);
+app.use('/users', verifyToken, usersRouter);
 app.use('/products', productsRouter);
 app.use('/orders', ordersRouter);
 
