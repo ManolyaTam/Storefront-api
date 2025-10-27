@@ -1,5 +1,6 @@
 import express from 'express';
 import { pool } from './db';
+import { verifyToken } from '../middleware/auth';
 
 const router = express.Router();
 
@@ -25,7 +26,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   const { name, price } = req.body;
   if (!name || price == null) return res.status(400).send('Missing fields');
 

@@ -1,8 +1,9 @@
 import express from 'express';
 import { pool } from './db';
+import { verifyToken } from '../middleware/auth';
 const router = express.Router();
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', verifyToken, async (req, res) => {
   const userId = req.params.id;
   try {
     // Get the active order for the user

@@ -41,8 +41,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var db_1 = require("./db");
+var auth_1 = require("../middleware/auth");
 var router = express_1.default.Router();
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/:id', auth_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var userId, orderResult, order, productsResult, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {

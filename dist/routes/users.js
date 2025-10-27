@@ -42,9 +42,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var bcrypt_1 = __importDefault(require("bcrypt"));
 var db_1 = require("./db");
+var auth_1 = require("../middleware/auth");
 var router = express_1.default.Router();
 var saltRounds = 10;
-router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/', auth_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var result, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -64,7 +65,7 @@ router.get('/', function (req, res) { return __awaiter(void 0, void 0, void 0, f
         }
     });
 }); });
-router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.get('/:id', auth_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var id, result, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -89,7 +90,7 @@ router.get('/:id', function (req, res) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); });
-router.post('/', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+router.post('/', auth_1.verifyToken, function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, firstName, lastName, password, hashedPassword, result, err_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
