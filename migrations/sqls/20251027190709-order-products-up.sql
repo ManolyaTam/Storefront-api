@@ -69,4 +69,4 @@ INSERT INTO order_products (order_id, product_id, quantity) VALUES
 (20, 9, 1),
 (20, 10, 2);
 
-SELECT setval('order_products_id_seq', (SELECT MAX(id) FROM order_products));
+SELECT setval('order_products_id_seq', (SELECT MAX(id) FROM order_products), true);

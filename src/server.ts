@@ -11,7 +11,7 @@ const address: string = "0.0.0.0:3000"
 app.use(bodyParser.json())
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!')
+  res.send('Hello World!')
 })
 
 // Routers
@@ -20,5 +20,5 @@ app.use('/products', productsRouter)
 app.use('/orders', ordersRouter)
 
 app.listen(3000, () => {
-    console.log(`starting app on: ${address}`)
+  console.log(`starting app on: ${address}`)
 })
