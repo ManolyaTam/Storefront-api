@@ -5,7 +5,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO users (firstName, lastName, password) VALUES
-('Ahmad', 'Muhsen', '$2b$10$abcdefghijklmnopqrstuv'), 
-('Lorem', 'Ipsum', '$2b$10$1234567890abcdefghijklmn'),
-('Dude', 'Who', '$2b$10$zyxwvutsrqponmlkjihgfedc');
+INSERT INTO users (id, firstName, lastName, password) VALUES
+(1, 'Ahmad', 'Muhsen', '$2b$10$abcdefghijklmnopqrstuv'), 
+(2, 'Lorem', 'Ipsum', '$2b$10$1234567890abcdefghijklmn'),
+(3, 'Dude', 'Who', '$2b$10$zyxwvutsrqponmlkjihgfedc'),
+(4, 'Sameer', 'Who', '$2b$10$zyxwvutsrqponmlkjihgfedc'),
+(5, 'Who', 'Him', '$2b$10$zyxwvutsrqponmlkjihgfedc');
